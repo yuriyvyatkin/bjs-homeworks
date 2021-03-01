@@ -11,7 +11,7 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
         if (typeof inputData[prop] === 'string') {
             let intermediateValue = parseInt(inputData[prop]);
 
-            if (!intermediateValue) {
+            if (isNaN(intermediateValue)) {
                 console.log(`Параметр ${prop} содержит неправильное значение ${inputData[prop]}`);
                 return;
             } else if (intermediateValue < 0) {
@@ -23,11 +23,16 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
         }
     }
 
+    if (!isFinite(date)) {
+        console.log('Параметр date не содержит дату');
+        return;
+    }
+
     let startDate = new Date();
     let endDate = date;
 
     if (endDate < startDate) {
-        console.log(`Параметр date содержит дату меньше текущей`);
+        console.log('Параметр date содержит дату меньше текущей');
         return;
     }
 
@@ -42,11 +47,11 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
 
     console.log(result);
 
-    return Number(result);
+    return +result;
 }
 
 function getGreeting(name) {
-    name = /^\s+$/.test(name) || !name ? 'Аноним' : name;
+    name = !name || !name.trim() ? 'Аноним' : name;
 
     let result = `Привет, мир! Меня зовут ${name}.`;
 
