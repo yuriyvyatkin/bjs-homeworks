@@ -7,7 +7,7 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
         amount: amount
     }
 
-    for (let [key, value] in Object.entries(inputData)) {
+    for (const [key, value] of Object.entries(inputData)) {
         if (typeof value === 'string') {
             let intermediateValue = parseInt(value);
 
