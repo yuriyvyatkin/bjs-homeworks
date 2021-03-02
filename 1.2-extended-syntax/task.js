@@ -6,12 +6,12 @@ function getResult(a, b, c) {
     let D = b ** 2 - 4 * a * c;
 
     if (D === 0) {
-        let x1 = -b / 2 * a;
+        let x1 = -b / (2 * a);
         x.push(x1);
     } else if (D > 0) {
         D = Math.sqrt(D);
-        let x1 = (-b + D) / 2 * a;
-        let x2 = (-b - D) / 2 * a;
+        let x1 = (-b + D) / (2 * a);
+        let x2 = (-b - D) / (2 * a);
         x.push(x1, x2);
     }
 

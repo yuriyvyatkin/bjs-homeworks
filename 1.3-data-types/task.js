@@ -7,19 +7,19 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
         amount: amount
     }
 
-    for (let prop in inputData) {
-        if (typeof inputData[prop] === 'string') {
-            let intermediateValue = parseInt(inputData[prop]);
+    for (let [key, value] in Object.entries(inputData)) {
+        if (typeof value === 'string') {
+            let intermediateValue = parseInt(value);
 
             if (isNaN(intermediateValue)) {
-                console.log(`Параметр ${prop} содержит неправильное значение ${inputData[prop]}`);
+                console.log(`Параметр ${key} содержит неправильное значение ${value}`);
                 return;
             } else if (intermediateValue < 0) {
-                console.log(`Параметр ${prop} содержит значение меньше нуля`);
+                console.log(`Параметр ${key} содержит значение меньше нуля`);
                 return;
             }
 
-            inputData[prop] = intermediateValue;
+            inputData[key] = intermediateValue;
         }
     }
 
@@ -28,7 +28,7 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
         return;
     }
 
-    let startDate = new Date();
+    let startDate = new Date;
     let endDate = date;
 
     if (endDate < startDate) {
