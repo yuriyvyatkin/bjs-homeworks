@@ -10,8 +10,9 @@ function getResult(a, b, c) {
         x.push(x1);
     } else if (D > 0) {
         D = Math.sqrt(D);
-        let x1 = (-b + D) / (2 * a);
-        let x2 = (-b - D) / (2 * a);
+        a = 2 * a;
+        let x1 = (-b + D) / a;
+        let x2 = (-b - D) / a;
         x.push(x1, x2);
     }
 
