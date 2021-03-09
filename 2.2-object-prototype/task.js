@@ -1,9 +1,9 @@
 'use strict';
 
 String.prototype.isPalindrome = function () {
-    let leftSubstring = this.toLowerCase().match(/[а-я]/g);
+    const leftSubstring = this.toLowerCase().match(/[а-я]/g);
 
-    let rightSubstring = leftSubstring
+    const rightSubstring = leftSubstring
         .splice(Math.ceil(this.length / 2))
         .reverse();
 
