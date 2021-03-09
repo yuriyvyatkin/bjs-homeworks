@@ -1,10 +1,10 @@
 'use strict';
 
 String.prototype.isPalindrome = function () {
-    const leftSubstring = this.toLowerCase().match(/[а-я]/g);
+    const leftSubstring = this.toLowerCase().match(/[а-яё]/g);
 
     const rightSubstring = leftSubstring
-        .splice(Math.ceil(this.length / 2))
+        .splice(Math.ceil(leftSubstring.length / 2))
         .reverse();
 
     return rightSubstring.every((item, index) => item === leftSubstring[index]);
